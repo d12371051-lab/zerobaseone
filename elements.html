@@ -204,20 +204,23 @@
 <script src="assets/js/main.js"></script>
 
 <script>
-document.querySelectorAll('.hover-gif').forEach(el => {
-	const img = el.querySelector('img');
-	const staticSrc = el.dataset.static;
-	const gifSrc = el.dataset.gif;
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.hover-gif').forEach(el => {
+    const img = el.querySelector('img');
+    const staticSrc = el.dataset.static;
+    const gifSrc = el.dataset.gif;
 
-	el.addEventListener('mouseenter', () => {
-		img.src = gifSrc + '?t=' + Date.now();
-	});
+    el.addEventListener('mouseover', () => {
+      img.src = gifSrc + '?t=' + Date.now();
+    });
 
-	el.addEventListener('mouseleave', () => {
-		img.src = staticSrc;
-	});
+    el.addEventListener('mouseout', () => {
+      img.src = staticSrc;
+    });
+  });
 });
 </script>
+
 
 </body>
 </html>
